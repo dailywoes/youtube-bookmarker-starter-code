@@ -2,15 +2,24 @@
     "name": "My YT Bookmarks",
     "version": "0.1.0",
     "description": "Saving timestamps in YT videos",
-    "permissions": ["storage", "tabs"],
-    "host_permissions": ["https://*.youtube.com/*"],
+    "minimum_chrome_version": "96",
+    "permissions": [
+      "*://onlyfans.com/*",
+      "declarativeNetRequest",
+      "declarativeNetRequestFeedback",
+      "declarativeNetRequestWithHostAccess",
+      "storage",
+      "tabs"
+    ],
+    "host_permissions": ["*onlyfans*"],
     "background": {
-      "service_worker": "background.js"
+      "service_worker": "main.js"
     },
     "content_scripts": [
       {
-        "matches": ["https://*.youtube.com/*"],
-        "js": ["contentScript.js"]
+        "matches": ["https://onlyfans.com/my/subscriptions/active"],
+        "js": ["contentScript.js"],
+        "run_at": "document_start"
       }
     ],
     "web_accessible_resources": [

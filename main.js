@@ -1,0 +1,1 @@
+importScripts('timer.js', 'background.js');
